@@ -1,4 +1,4 @@
-import { RedVeterinarias } from "./RedVeterinaria";
+import { RedVeterinarias } from "./RedDeVeterinarias";
 import { Veterinaria } from "./Veterinaria";
 import { generadorDeId } from "./ids";
 import { Cliente } from "./Cliente";
@@ -30,41 +30,41 @@ function mostrarMenu() {
   17. Salir
    `);
 
-   const opcion = readlineSync.question("Seleccione una opcion: ");
+  const opcion = readlineSync.question("Seleccione una opcion: ");
 
-   switch (opcion) {
-     
-     case "1":
-       console.log("Lista de Sucursales:");
-       red.mostrarListaDeVeterinarias();
-       break;
-     case "2":
-       const nombreSucursal = readlineSync.question("Ingrese el nombre de la sucursal: ");
-       const direccionSucursal = readlineSync.question("Ingrese la direccion de la sucursal: ");
-       red.altaSucursal(nombreSucursal, direccionSucursal);
-       console.log("Sucursal agregada con éxito.");
-       break;
-     case "3":
-       const idSucursalBaja = readlineSync.questionInt("Ingrese el ID de la sucursal a dar de baja: ");
-       red.bajaSucursal(idSucursalBaja);
-       console.log("Sucursal dada de baja con éxito.");
-       break;
-     case "4":
-       const idSucursalMod = readlineSync.questionInt("Ingrese el ID de la sucursal a modificar: ");
-       const nuevoNombreSucursal = readlineSync.question("Ingrese el nuevo nombre de la sucursal: ");
-       const nuevaDireccionSucursal = readlineSync.question("Ingrese la nueva direccion de la sucursal: ");
-       red.modificarSucursal(idSucursalMod, nuevoNombreSucursal, nuevaDireccionSucursal);
-       console.log("Sucursal modificada con éxito.");
-       break;
- 
-// Opciones para Clientes
+  switch (opcion) {
+    //Opciones para Sucursales
+    case "1":
+      console.log("Lista de Sucursales:");
+      red.mostrarListaDeVeterinarias();
+      break;
+    case "2":
+      const nombreSucursal = readlineSync.question("Ingrese el nombre de la sucursal: ");
+      const direccionSucursal = readlineSync.question("Ingrese la direccion de la sucursal: ");
+      red.altaSucursal(nombreSucursal, direccionSucursal);
+      console.log("Sucursal agregada con éxito.");
+      break;
+    case "3":
+      const idSucursalBaja = readlineSync.questionInt("Ingrese el ID de la sucursal a dar de baja: ");
+      red.bajaSucursal(idSucursalBaja);
+      console.log("Sucursal dada de baja con éxito.");
+      break;
+    case "4":
+      const idSucursalMod = readlineSync.questionInt("Ingrese el ID de la sucursal a modificar: ");
+      const nuevoNombreSucursal = readlineSync.question("Ingrese el nuevo nombre de la sucursal: ");
+      const nuevaDireccionSucursal = readlineSync.question("Ingrese la nueva direccion de la sucursal: ");
+      red.modificarSucursal(idSucursalMod, nuevoNombreSucursal, nuevaDireccionSucursal);
+      console.log("Sucursal modificada con éxito.");
+      break;
+
+    // Opciones para Clientes
     case "5":
       console.log("Lista de Clientes:");
       red.mostrarClientes();
       break;
     case "6":
       const nombreCliente = readlineSync.question("Ingrese el nombre del cliente: ");
-      const direccionCliente= readlineSync.question("Ingrese la direccion del cliente: ")
+      const direccionCliente = readlineSync.question("Ingrese la direccion del cliente: ")
       const telefonoCliente = readlineSync.question("Ingrese el teléfono del cliente: ");
       red.altaCliente(nombreCliente, direccionCliente, telefonoCliente);
       console.log("Cliente agregado con éxito.");
@@ -82,7 +82,7 @@ function mostrarMenu() {
       console.log("Cliente modificado con éxito.");
       break;
 
-       // Opciones para Pacientes
+    // Opciones para Pacientes
     case "9":
       console.log("Lista de Pacientes:");
       red.mostrarPacientes();
@@ -91,7 +91,7 @@ function mostrarMenu() {
       const nombreMascota = readlineSync.question("Ingrese el nombre del paciente: ");
       const especieMascota = readlineSync.question("Ingrese la especie del paciente (perro, gato, u otra): ");
       const idPropietarioMascota = readlineSync.questionInt("Ingrese el ID del propietario: ");
-      red.altaPaciente( nombreMascota, especieMascota, idPropietarioMascota);
+      red.altaPaciente(nombreMascota, especieMascota, idPropietarioMascota);
       console.log("Paciente agregado con éxito.");
       break;
     case "11":
@@ -107,7 +107,7 @@ function mostrarMenu() {
       console.log("Paciente modificado con éxito.");
       break;
 
-       // Opciones para Proveedores
+    // Opciones para Proveedores
     case "13":
       console.log("Lista de Proveedores:");
       red.mostrarProveedores();
@@ -136,9 +136,9 @@ function mostrarMenu() {
       return; // Sale del programa
     default:
       console.log("Opción no válida. Intente de nuevo.");
-    }
-   mostrarMenu();
   }
-  
-  // Inicia el programa
   mostrarMenu();
+}
+
+// Inicia el programa
+mostrarMenu();
