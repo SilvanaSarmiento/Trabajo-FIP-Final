@@ -1,20 +1,16 @@
-import { generadorDeId } from "./ids";
+import { generadorDeId } from "./Ids";
 
 export class Proveedor {
-  private idsProveedores: number[] = [];
   private id: number;
   private nombre: string;
   private telefono: string;
 
   constructor(id: number, nombre: string, telefono: string) {
-    this.id = generadorDeId(this.idsProveedores);
+    this.id= id;
     this.nombre = nombre;
     this.telefono = telefono;
   }
 
-  public getIdsProveedores(): number[] {
-    return this.idsProveedores;
-  }
 
   public getId(): number {
     return this.id;

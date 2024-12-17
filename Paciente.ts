@@ -1,23 +1,16 @@
-import { generadorDeId } from "./ids";
-
+import { Cliente } from "./Cliente";
 
 export class Paciente {
-  private idsPacientes: number[] = [];
   private id: number;
   private nombre: string;
   private especie: string;
-  private idPropietario: number;
+  private propietario: Cliente;
 
-
-  constructor(id: number, nombre: string, especie: string, idPropietario: number) {
-    this.id = generadorDeId(this.idsPacientes);
+  constructor(id: number, nombre: string, especie: string, propietario: Cliente) {
+    this.id = id; // El ID recibido como parámetro
     this.nombre = nombre;
     this.especie = (especie === "perro" || especie === "gato") ? especie : "exótica";
-    this.idPropietario = idPropietario;
-  }
-
-  public getIdsPacientes(): number[] {
-    return this.idsPacientes;
+    this.propietario = propietario;
   }
 
   public getId(): number {
@@ -32,11 +25,11 @@ export class Paciente {
     return this.especie;
   }
 
-  public getIdPropietario(): number {
-    return this.idPropietario;
+  public getPropietario(): Cliente {
+    return this.propietario;
   }
-  // Método para modificar los datos de la mascota
-  modificar(nombre: string, especie: string): void {
+
+  public modificar(nombre: string, especie: string): void {
     this.nombre = nombre;
     this.especie = (especie === "perro" || especie === "gato") ? especie : "exótica";
   }
