@@ -1,7 +1,3 @@
-import { RedVeterinarias } from "./RedDeVeterinarias";
-import { generadorDeId } from "./ids";
-
-
 export class Veterinaria {
   protected idsVeterinarias: number[] = [];
   protected id: number;
@@ -9,7 +5,7 @@ export class Veterinaria {
   protected direccion: string;
 
   constructor(id: number, nombre: string, direccion: string) {
-    this.id = generadorDeId(this.idsVeterinarias);
+    this.id = id; // Asignación directa del ID pasado como argumento
     this.nombre = nombre;
     this.direccion = direccion;
   }
@@ -18,7 +14,6 @@ export class Veterinaria {
     return this.idsVeterinarias;
   }
 
-
   public getId(): number {
     return this.id;
   }
@@ -26,7 +21,6 @@ export class Veterinaria {
   public getNombre(): string {
     return this.nombre;
   }
-
 
   public getDireccion(): string {
     return this.direccion;
